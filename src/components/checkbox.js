@@ -1,0 +1,22 @@
+// Este componente tendrá un cuadro de chequeo (chekbox) que cambiará su etiqueta según se encuentre activo o inactivo.
+
+import React, { useState } from "react";
+
+function Checkbox(props) {
+  const [status, setStatus] = useState({ isChecked: false });
+
+  const onChange = () => {
+    setStatus({ isChecked: !status.isChecked });
+  };
+
+  return (
+    <div>
+      <label>
+        <input type="checkbox" checked={status.isChecked} onChange={onChange} data-testid="cb"/>
+        {status.isChecked ? props.labelActive : props.labelInactive}
+      </label>
+    </div>
+  );
+}
+
+export default Checkbox;
